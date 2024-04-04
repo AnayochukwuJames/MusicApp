@@ -50,25 +50,24 @@ public ResponseEntity<String>deleteMusic(@PathVariable int id){
     public ResponseEntity<Music> addNewMusic (@RequestBody @Valid Music music){
     return musicService.addNewMusic(music);
         }
-        @GetMapping("artistName/{String}")
+        @GetMapping("artistName")
     public ResponseEntity<Music> findByArtistName(@RequestParam String artistName){
         return musicService.findByArtistName(artistName);
     }
-    @GetMapping("title/{String}")
+    @GetMapping("title")
     public ResponseEntity<Music> findByTitle (@RequestParam String title){
         return musicService.findByTitle(title);
     }
-    @GetMapping("genre/{genre}")
-    public ResponseEntity<Music>findByGenre(@PathVariable String genre){
+    @GetMapping("genre")
+    public ResponseEntity<Music>findByGenre(@RequestParam String genre){
         return musicService.findByGenre(genre);
     }
-    @GetMapping("year/{int}")
-    public ResponseEntity<Music>findByYearOfProduction(@PathVariable int year){
+    @GetMapping("year")
+    public ResponseEntity<Music>findByYearOfProduction(@RequestParam int year){
         return musicService.findByYearOfProduction(year);
-
     }
-    @GetMapping("albumName/{String}")
-    public ResponseEntity<Music>findByAlbumName(String albumName){
+    @GetMapping("albumName")
+    public ResponseEntity<Music>findByAlbumName(@RequestParam String albumName){
         return musicService.findByAlbumName(albumName);
     }
 
