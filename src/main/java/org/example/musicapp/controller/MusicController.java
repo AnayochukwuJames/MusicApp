@@ -19,7 +19,8 @@ import java.util.List;
 public class MusicController {
     private final MusicService musicService;
 @GetMapping("allMusic")
-public ResponseEntity<List<Music>> getAllMusic(){
+public ResponseEntity<Iterable<Music>> getAllMusic(){
+//public ResponseEntity<List<Music>> getAllMusic(){
         return musicService.getAllMusic();
         }
 @DeleteMapping("delete/{id}")

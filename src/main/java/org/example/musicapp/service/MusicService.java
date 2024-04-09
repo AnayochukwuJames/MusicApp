@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MusicService {
     private final MusicRepository musicRepository;
-    public ResponseEntity<List<Music>> getAllMusic(){
+    public ResponseEntity<Iterable<Music>> getAllMusic(){
         return new ResponseEntity<>(musicRepository.findAll(), HttpStatus.OK);
 
     }
