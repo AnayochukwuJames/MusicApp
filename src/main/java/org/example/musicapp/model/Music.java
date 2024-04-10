@@ -18,7 +18,7 @@ import org.springframework.data.jpa.repository.Query;
 @Entity
 public class Music {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //To generate Id manually
 //    @Query("SELECT MAX (id) FROM")
     private int id;
@@ -40,5 +40,5 @@ public class Music {
     private int yearOfProduction;
 
     @Value("${my.name}")
-   private String name;
+   private String fullName;
 }
