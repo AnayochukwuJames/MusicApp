@@ -31,6 +31,8 @@ public class ResourceController {
                 .deleteMusic(id)).withRel("delete");
         Link update = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(MusicController.class)
                 .updateMusic(id, musicToSend)).withRel("update");
+        Link addNewMusic = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(MusicController.class)
+                .addNewMusic(musicToSend)).withRel("SaveMusic");
         Link allMusic = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(MusicController.class)
                 .getAllMusic()).withRel("allMusic");
         Link findByArtistName = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(MusicController.class)
@@ -43,7 +45,7 @@ public class ResourceController {
                 .class).findByYearOfProduction(musicToSend.getYearOfProduction())).withRel("findByYearOfProduction");
         Link findByAlbumName = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(MusicController.class)
                 .findByAlbumName(musicToSend.getAlbumName())).withRel("findByAlbumName");
-        musicResource.add(selfLink, delete, update, allMusic, findByArtistName, findByTitle, findByGenre,
+        musicResource.add(selfLink, delete, update, addNewMusic, allMusic, findByArtistName, findByTitle, findByGenre,
                 findByYearOfProduction, findByAlbumName);
 
         return new ResponseEntity<>(musicResource, HttpStatus.OK);
