@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.musicapp.model.Music;
 import org.example.musicapp.model.MusicResource;
 import org.example.musicapp.service.MusicService;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
