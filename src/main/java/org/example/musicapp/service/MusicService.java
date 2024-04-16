@@ -17,7 +17,7 @@ import java.util.List;
 public class MusicService {
     private final MusicRepository musicRepository;
 //    public ResponseEntity<List<Music>> getAllMusic(){
-    @Cacheable(value = "AllMusic")
+    @Cacheable(value = {"AllMusic", "getMusicById"}, key = "#id")
     public ResponseEntity<Iterable<Music>> getAllMusic(){
         System.out.println("catchable");
         return new ResponseEntity<>(musicRepository.findAll(), HttpStatus.OK);
@@ -50,10 +50,6 @@ public class MusicService {
         return new ResponseEntity<>("music is deleted Successfully", HttpStatus.OK);
     }
 
-//public ResponseEntity<String> deleteMusic(int id){
-//    musicRepository.deleteById(id);
-//    return new ResponseEntity<>("Music deleted Successfully", HttpStatus.OK);
-//}
     @Cacheable(value = "findByArtistName", key = "#artistName")
     public ResponseEntity<Music> findByArtistName(String artistName){
         return new ResponseEntity<>(musicRepository.findByArtistName(artistName), HttpStatus.FOUND);
@@ -75,5 +71,4 @@ public class MusicService {
     public ResponseEntity<Music>findByAlbumName(String albumName){
         return new ResponseEntity<>(musicRepository.findByAlbumName(albumName), HttpStatus.OK);
     }
-
 }
