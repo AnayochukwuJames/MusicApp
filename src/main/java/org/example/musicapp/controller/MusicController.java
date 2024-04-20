@@ -69,19 +69,23 @@ public ResponseEntity<String>deleteMusic(@PathVariable int id){
     }
 
 
-    @GetMapping("addMusic")
+    @GetMapping("registrationForm")
     public ModelAndView registrationForm(){
-        ModelAndView musicForm = new ModelAndView("addMusic");
+        ModelAndView musicForm = new ModelAndView("registrationForm");
         Music music = new Music();
-        musicForm.addObject("addMusic", music);
+        musicForm.addObject("registrationForm", music);
         return musicForm;
    }
 
-    @PostMapping("addMusic")
-    public ModelAndView addMusic(@ModelAttribute @Valid Music music){
+    @PostMapping("registrationForm")
+    public ModelAndView registrationForm(@ModelAttribute @Valid Music music){
         musicService.addNewMusic(music);
         return thymeleafController.displayMusic();
+    }
 
+    @GetMapping("/submit")
+    public String submitForm(){
+        return "redirect:/display-music";
     }
 }
 
