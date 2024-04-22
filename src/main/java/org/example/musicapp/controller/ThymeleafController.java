@@ -25,9 +25,9 @@ public class ThymeleafController {
     }
 
 
-//    //Only when your using thymeleaf
-//    @PostMapping("/submit")
-//    public String submitForm(@ModelAttribute Music music){
-//        return "success";
-//    }
+    //Only when your using thymeleaf
+    @PostMapping("/submit")
+    public String submitForm(@ModelAttribute Music music){
+        return "redirect:/display-music";
+    }
 }

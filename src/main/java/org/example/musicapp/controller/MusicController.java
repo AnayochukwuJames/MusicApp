@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/music")
 @RequiredArgsConstructor
@@ -78,7 +80,7 @@ public ResponseEntity<String>deleteMusic(@PathVariable int id){
    }
 
     @PostMapping("registrationForm")
-    public ModelAndView registrationForm(@ModelAttribute @Valid Music music){
+    public ModelAndView registrationForm(@RequestBody @Valid Music music){
         musicService.addNewMusic(music);
         return thymeleafController.displayMusic();
     }
