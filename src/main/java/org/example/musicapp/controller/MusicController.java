@@ -71,7 +71,7 @@ public ResponseEntity<String>deleteMusic(@PathVariable int id){
     }
 
 
-    @GetMapping("registrationForm")
+    @GetMapping("/registrationForm")
     public ModelAndView registrationForm(){
         ModelAndView musicForm = new ModelAndView("registrationForm");
         Music music = new Music();
@@ -79,8 +79,8 @@ public ResponseEntity<String>deleteMusic(@PathVariable int id){
         return musicForm;
    }
 
-    @PostMapping("registrationForm")
-    public ModelAndView registrationForm(@RequestBody @Valid Music music){
+    @PostMapping("/registrationForm")
+    public ModelAndView registrationForm(@ModelAttribute @Valid Music music){
         musicService.addNewMusic(music);
         return thymeleafController.displayMusic();
     }
